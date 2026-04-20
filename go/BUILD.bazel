@@ -1,0 +1,12 @@
+load("@rules_go//go:def.bzl", "go_binary")
+
+exports_files([
+    "go.mod",
+    "go.sum",
+])
+
+go_binary(
+    name = "app",
+    srcs = ["main.go"],
+    deps = ["@com_github_google_uuid//:uuid"],
+)
