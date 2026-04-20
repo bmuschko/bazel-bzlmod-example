@@ -6,7 +6,11 @@ import (
 	"github.com/google/uuid"
 )
 
+// GenerateUUID returns a new random UUID string.
+func GenerateUUID() string {
+	return uuid.New().String()
+}
+
 func main() {
-	id := uuid.New()
-	fmt.Printf("Generated UUID: %s\n", id.String())
+	fmt.Printf("Generated UUID: %s\n", GenerateUUID())
 }

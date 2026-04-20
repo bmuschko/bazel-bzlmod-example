@@ -1,6 +1,22 @@
+java_library(
+    name = "lib",
+    srcs = ["src/main/java/com/example/App.java"],
+    deps = ["@maven//:com_google_guava_guava"],
+)
+
 java_binary(
     name = "app",
-    srcs = ["src/main/java/com/example/App.java"],
     main_class = "com.example.App",
-    deps = ["@maven//:com_google_guava_guava"],
+    runtime_deps = [":lib"],
+)
+
+java_test(
+    name = "app_test",
+    srcs = ["src/test/java/com/example/AppTest.java"],
+    test_class = "com.example.AppTest",
+    deps = [
+        ":lib",
+        "@maven//:com_google_guava_guava",
+        "@maven//:junit_junit",
+    ],
 )

@@ -1,12 +1,24 @@
-load("@rules_go//go:def.bzl", "go_binary")
+load("@rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
 
 exports_files([
     "go.mod",
     "go.sum",
 ])
 
+go_library(
+    name = "lib",
+    srcs = ["main.go"],
+    importpath = "example.com/go-app",
+    deps = ["@com_github_google_uuid//:uuid"],
+)
+
 go_binary(
     name = "app",
-    srcs = ["main.go"],
-    deps = ["@com_github_google_uuid//:uuid"],
+    embed = [":lib"],
+)
+
+go_test(
+    name = "app_test",
+    srcs = ["main_test.go"],
+    embed = [":lib"],
 )
