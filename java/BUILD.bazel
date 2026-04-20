@@ -6,6 +6,7 @@ java_library(
     name = "lib",
     srcs = ["src/main/java/com/example/App.java"],
     deps = ["@maven//:com_google_guava_guava"],
+    exports = ["@maven//:com_google_guava_guava"],
 )
 
 java_binary(
@@ -20,7 +21,6 @@ java_test(
     test_class = "com.example.AppTest",
     deps = [
         ":lib",
-        "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",
     ],
 )
