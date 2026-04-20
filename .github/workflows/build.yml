@@ -16,4 +16,4 @@ jobs:
         run: bazelisk build //...
 
       - name: Run all tests
-        run: bazelisk test //... --test_output=errors
+        run: bazelisk test //... --test_output=errors || [ $? -eq 4 ]
