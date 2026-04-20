@@ -1,0 +1,24 @@
+module(
+    name = "java-app",
+    version = "0.0.0",
+)
+
+# Workaround: rules_jvm_external 6.x pulls an old rules_android that is
+# incompatible with Bazel 9 (removed CcInfo symbol).
+# See https://github.com/bazel-contrib/rules_jvm_external/issues/1535
+single_version_override(
+    module_name = "rules_android",
+    version = "0.7.1",
+)
+
+bazel_dep(name = "rules_java", version = "9.6.1")
+bazel_dep(name = "rules_jvm_external", version = "6.10")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    artifacts = [
+        "com.google.guava:guava:33.3.1-jre",
+        "junit:junit:4.13.2",
+    ],
+)
+use_repo(maven, "maven")
