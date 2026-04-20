@@ -20,6 +20,7 @@ java_test(
     test_class = "com.example.AppTest",
     deps = [
         ":lib",
+        "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",
     ],
 )
