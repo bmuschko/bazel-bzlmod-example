@@ -46,9 +46,9 @@ Language-specific dependency managers (Go modules, Maven, pip) are integrated th
 
 | Language | Extension | Dependency Source | Rule Set |
 |----------|-----------|-------------------|----------|
-| Go | [`go_deps`](https://registry.bazel.build/modules/gazelle) | `go.mod` | [rules_go](https://github.com/bazel-contrib/rules_go) + [gazelle](https://github.com/bazelbuild/bazel-gazelle) |
-| Java | [`maven`](https://registry.bazel.build/modules/rules_jvm_external) | Maven coordinates | [rules_java](https://github.com/bazelbuild/rules_java) + [rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) |
-| Python | [`pip`](https://registry.bazel.build/modules/rules_python) | `requirements_lock.txt` | [rules_python](https://github.com/bazel-contrib/rules_python) |
+| Go | `go_deps` | `go.mod` | [rules_go](https://github.com/bazel-contrib/rules_go) + [gazelle](https://github.com/bazelbuild/bazel-gazelle) |
+| Java | `maven` | Maven coordinates | [rules_java](https://github.com/bazelbuild/rules_java) + [rules_jvm_external](https://github.com/bazel-contrib/rules_jvm_external) |
+| Python | `pip` | `requirements_lock.txt` | [rules_python](https://github.com/bazel-contrib/rules_python) |
 
 Extensions are invoked with [`use_extension()`](https://bazel.build/rules/lib/globals/module#use_extension) and their resolved repositories are made available to BUILD files via [`use_repo()`](https://bazel.build/rules/lib/globals/module#use_repo).
 
