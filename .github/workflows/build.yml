@@ -18,6 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Fetch all external dependencies
+        run: bazelisk fetch //...
+
       - name: Build all targets
         run: bazelisk build //...
 
